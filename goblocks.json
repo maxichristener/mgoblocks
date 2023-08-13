@@ -1,0 +1,25 @@
+{
+	"separator": " | ",
+	"actions": 
+	[
+		{
+			"prefix": "🔊 ",
+			"updateSignal": "36",
+			"command": "volume",
+			"timer": "0"
+		},
+		{
+			"updateSignal": "39",
+			"command": "(sleep 5 ; curl \"wttr.in\/Corrientes?format=3\")",		
+			"timer": "60m"
+		},
+		{
+			"prefix": "🗓 ",
+			"updateSignal": "35",
+			"command": "(date \"+%a %d-%m-%y %H:%M\")",		
+			"timer": "1s",
+			"suffix": " "
+		}
+	]
+
+}

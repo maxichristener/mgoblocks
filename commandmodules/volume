@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# A dwm_bar function to show the master volume of ALSA
+# Joe Standring <git@joestandring.com>
+# fork maxi
+# GNU GPLv3
+# Dependencies: alsa-utils
+
+STATUS=$(amixer sget Master | tail -n1 | sed -r "s/.*\[(.*)\]/\1/")
+VOL=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+    	if [ "$STATUS" = "off" ]; then
+    		printf "MUTE"
+    	else
+	        #if [ "$VOL" -ge 0 ] && [ "$VOL" -le 33 ]; then
+	            #printf "low %s%%" "$VOL"
+	        #elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
+	            #printf "mid %s%%" "$VOL"
+	        #else
+	            printf "vol %s%%" "$VOL"
+        	#fi
+        fi
